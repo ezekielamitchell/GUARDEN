@@ -1,0 +1,24 @@
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+lib/
+.vscode/
+.clang_complete
+.gcc-flags.json
+
+# Build artifacts
+*.o
+*.elf
+*.bin
+*.map
+
+# IDE
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Credentials (if you create a separate config file)
+config.h
+credentials.h
