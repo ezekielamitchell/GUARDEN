@@ -2,7 +2,7 @@
 
 ## System Overview
 
-<figure><picture><source srcset=".gitbook/assets/diagram-export-11-14-2025-10_09_38-AM.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/diagram-export-11-14-2025-10_04_29-AM.png" alt=""></picture><figcaption></figcaption></figure>
+<figure><picture><source srcset=".gitbook/assets/guarden_dark.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/diagram-export-11-14-2025-10_04_29-AM.png" alt=""></picture><figcaption></figcaption></figure>
 
 ## Hardware Components
 
