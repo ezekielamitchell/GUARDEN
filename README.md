@@ -17,15 +17,13 @@ layout:
 
 # GUARDEN - Garden Urban AI Rodent Detection and Environment Node
 
-<div data-with-frame="true"><figure><img src=".gitbook/assets/guarden.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="center" data-with-frame="true"><figure><img src=".gitbook/assets/guarden.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 <p align="center"><strong>Seattle University - College of Science and Engineering</strong> <br><br><strong>ECEGR 4640: Internet of Things (IoT)</strong></p>
 
 <p align="center">Rollan Cabalar, Narely Rivas Castellon, Ezekiel A. Mitchell, Tony Tran, Brandon Vu<br>{rcabalar, nrivascastellon, emitchell4, ttran23, bvu}@seattleu.edu<br><br>Danny Woo Community Garden (Andy Allen, aallen@interimcda.org)</p>
 
-<p align="center"></p>
-
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE/) [![Platform](https://img.shields.io/badge/platform-ESP32--C3-green.svg)](https://www.espressif.com/en/products/socs/esp32-c3) [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+<p align="center"><a href="LICENSE/"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a> <a href="https://www.espressif.com/en/products/socs/esp32-c3"><img src="https://img.shields.io/badge/platform-ESP32--C3-green.svg" alt="Platform"></a> <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python"></a></p>
 
 ***
 
