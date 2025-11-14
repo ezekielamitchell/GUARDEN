@@ -1,20 +1,3 @@
----
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
----
-
 # System Architecture
 
 <div align="center"><figure><picture><source srcset=".gitbook/assets/guarden_dark.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/diagram-export-11-14-2025-10_04_29-AM.png" alt="" width="563"></picture><figcaption><p>image [2] system_overview</p></figcaption></figure></div>
