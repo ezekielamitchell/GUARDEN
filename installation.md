@@ -40,6 +40,7 @@ layout:
 
 ### Quick Start
 
+{% code expandable="true" %}
 ```bash
 # ============================================================
 # RASPBERRY PI 3B+ SETUP (Local Server)
@@ -121,3 +122,4 @@ pio run --target upload
 # 2. Open browser and navigate to: http://192.168.4.1
 # 3. View live detections, heatmaps, and analytics
 ```
+{% endcode %}

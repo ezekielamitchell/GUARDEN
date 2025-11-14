@@ -33,7 +33,7 @@ layout:
 **Power System:**
 
 * **Hub (Pi 3B+):** Direct AC power or large power bank
-* **Edge Nodes:** Solar panels + LiPo battery + backup
+* **Edge Nodes:** Solar panels + LiPo battery
 
 ## Software Tools & Stack
 
