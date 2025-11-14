@@ -1,6 +1,7 @@
 # Table of contents
 
 * [GUARDEN - Garden Urban AI Rodent Detection and Environment Node](README.md)
+* [System Architecture](system-architecture.md)
 * [Installation](installation.md)
 * [Usage](usage.md)
 * [Model Training](model-training.md)

@@ -12,7 +12,7 @@ layout:
   pagination:
     visible: true
   metadata:
-    visible: false
+    visible: true
 ---
 
 # GUARDEN - Garden Urban AI Rodent Detection and Environment Node
@@ -58,34 +58,7 @@ The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch se
 
 ### Performance Targets
 
-<table><thead><tr><th>Metric</th><th>Target</th><th>Status<select><option value="sqgq1MesM8XL" label="Achieved" color="blue"></option><option value="83KQpvtBIYxJ" label="In progress" color="blue"></option></select></th></tr></thead><tbody><tr><td>Detection Latency</td><td>&#x3C;250ms</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Battery Life</td><td>7+ days</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Detection Accuracy</td><td>>90%</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Network Uptime</td><td>>95%</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Storage Capacity</td><td>30+ days</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr></tbody></table>
-
-***
-
-## Hardware Components
-
-| Component                | Quantity | Unit Cost | Total  | Notes                                  |
-| ------------------------ | -------- | --------- | ------ | -------------------------------------- |
-| Grove Vision AI V2 Kit   | 4        | -         | -      | Provided on campus                     |
-| Raspberry Pi 3B+         | 1        | $35       | $35    | Local server + WiFi AP                 |
-| MicroSD Card (64GB)      | 1        | $12       | $12    | For Pi database                        |
-| MicroSD Cards (32GB)     | 4        | $8        | $32    | For ESP32 local queuing                |
-| LiPo Batteries (5000mAh) | 4        | $15       | $60    | 3.7V with protection                   |
-| Miscellaneous            | -        | -         | \~$110 | Wire, connectors, mounting, enclosures |
-
-**Projected Total:** \~$250
-
-**Network Architecture:**
-
-* **Pi 3B+:** WiFi Access Point (SSID: GUARDEN-Local) - creates local network
-* **ESP32 Nodes:** Connect to Pi's WiFi AP for MQTT communication
-* **User Devices:** Connect to Pi's WiFi AP to access the web dashboard
-* **No Internet Required:** Fully offline, self-contained system
-
-**Power System:**
-
-* **Hub (Pi 3B+):** Direct AC power or large power bank
-* **Edge Nodes:** Solar panels + LiPo battery + backup
+<table><thead><tr><th>Metric</th><th>Target</th><th>Status<select><option value="sqgq1MesM8XL" label="Achieved" color="blue"></option><option value="83KQpvtBIYxJ" label="In progress" color="blue"></option></select></th></tr></thead><tbody><tr><td>Detection Latency</td><td>&#x3C;1s</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Battery Life</td><td>3+ days</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Detection Accuracy</td><td>>65%</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Network Uptime</td><td>>25%</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Storage Capacity</td><td>3+ days</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr></tbody></table>
 
 ***
 
@@ -96,7 +69,7 @@ GUARDEN/
 ├── src/
 │   ├── edge/              # ESP32 firmware and edge detection
 │   ├── fog/               # Raspberry Pi hub services
-│   └── web/               # Web dashboard and API
+│   └── cloud/             # Web dashboard and API
 ├── tests/                 # Unit and integration tests
 ├── data/                  # Datasets and trained models
 ├── scripts/               # Training, deployment, utilities
