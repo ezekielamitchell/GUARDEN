@@ -17,7 +17,7 @@ layout:
 
 # System Architecture
 
-<div align="center"><figure><picture><source srcset=".gitbook/assets/guarden_dark.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/diagram-export-11-14-2025-10_04_29-AM.png" alt="" width="563"></picture><figcaption><p>image [2] system_overview_dark</p></figcaption></figure></div>
+<div align="center"><figure><picture><source srcset=".gitbook/assets/guarden_dark.png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/diagram-export-11-14-2025-10_04_29-AM.png" alt="" width="563"></picture><figcaption><p>image [2] system_overview</p></figcaption></figure></div>
 
 ## Hardware Components
 
