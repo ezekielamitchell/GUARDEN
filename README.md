@@ -1,3 +1,20 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: false
+---
+
 # GUARDEN - Garden Urban AI Rodent Detection and Environment Node
 
 **Seattle University - College of Science and Engineering** **ECEGR 4640: Internet of Things (IoT)**
