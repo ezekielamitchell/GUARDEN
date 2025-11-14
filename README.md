@@ -1,6 +1,6 @@
 # GUARDEN - Garden Urban AI Rodent Detection and Environment Node
 
-<div align="center" data-with-frame="true"><figure><picture><source srcset="../../.gitbook/assets/guarden_dark (1).png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/guarden.png" alt="" width="375"></picture><figcaption><p>image [1] logo</p></figcaption></figure></div>
+<div align="center" data-with-frame="true"><figure><picture><source srcset="docs/images/guarden_light.png" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/guarden.png" alt="" width="375"></picture><figcaption><p>image [1] logo</p></figcaption></figure></div>
 
 <p align="center"><strong>Seattle University - College of Science and Engineering</strong><br><br><strong>ECEGR 4640: Internet of Things (IoT)</strong></p>
 
