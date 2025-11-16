@@ -1,6 +1,23 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+---
+
 # System Architecture
 
-<div align="center"><figure><picture><source srcset="../../../../docs/gitbook/.gitbook/assets/guarden_dark.png" media="(prefers-color-scheme: dark)"><img src="../../../../docs/gitbook/.gitbook/assets/diagram-export-11-14-2025-10_04_29-AM.png" alt="" width="563"></picture><figcaption><p>image [2] system_overview</p></figcaption></figure></div>
+<div align="center"><figure><picture><source srcset="../.gitbook/assets/guarden_dark.png" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/diagram-export-11-14-2025-10_04_29-AM.png" alt=""></picture><figcaption><p>image [2] system_overview</p></figcaption></figure></div>
 
 ## Hardware Components
 
@@ -41,3 +58,4 @@
 | LiPo Battery (7.4V) | Power supply               | Adafruit               | 4                | $20       | $80        |                 |
 | Solar Panel (10W)   | Edge node power            | \[Supplier]            | 3                | $27       | $81        |                 |
 | Power Bank          | Backup power (hub)         | Anker                  | 1                | $30       | $30        |                 |
+
