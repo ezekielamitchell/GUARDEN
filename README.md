@@ -1,3 +1,20 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+---
+
 # GUARDEN - Garden Urban AI Rodent Detection and Environment Node
 
 <div align="center" data-with-frame="true"><figure><picture><source srcset=".gitbook/includes/.gitbook/assets/guarden_dark (1).png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/guarden.png" alt="" width="375"></picture><figcaption><p>image [1] logo</p></figcaption></figure></div>
@@ -14,6 +31,8 @@
 
 The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch serving Seattle's International District/Chinatown community. Rat infestations significantly reduce harvest yields. GUARDEN offers a data-driven solution utilizing distributed AI-powered camera nodes to monitor and map rat activity, facilitating targeted pest control.
 
+***
+
 ## Key Features
 
 * **Edge AI Detection** - On-device TensorFlow Lite inference on ESP32-C3
@@ -28,16 +47,9 @@ The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch se
 
 ## Technical Specifications
 
-| Component         | Specification            | Performance             | Power           |
-| ----------------- | ------------------------ | ----------------------- | --------------- |
-| **Processor**     | ESP32-C3 RISC-V @ 160MHz | <250ms inference target | 240mA active    |
-| **Camera**        | OV2640 2MP sensor        | 640×480 capture         | 80mA            |
-| **AI Model**      | TensorFlow Lite INT8     | >90% accuracy target    | 160mA           |
-| **Motion Sensor** | PIR sensor               | Event-driven wake       | 50µA standby    |
-| **Sleep Mode**    | Deep sleep               | Extended battery        | 10µA            |
-| **Connectivity**  | WiFi 802.11 b/g/n + MQTT | Reliable mesh           | 120mA TX        |
-| **Storage**       | MicroSD + PostgreSQL     | Offline resilience      | 20mA write      |
-| **Power**         | Solar + 5000mAh LiPo     | 10+ day runtime         | Self-sustaining |
+<table data-full-width="true"><thead><tr><th>Component</th><th>Specification</th><th>Performance</th><th>Power</th></tr></thead><tbody><tr><td><strong>Processor</strong></td><td>ESP32-C3 RISC-V @ 160MHz</td><td>&#x3C;250ms inference target</td><td>240mA active</td></tr><tr><td><strong>Camera</strong></td><td>OV2640 2MP sensor</td><td>640×480 capture</td><td>80mA</td></tr><tr><td><strong>AI Model</strong></td><td>TensorFlow Lite INT8</td><td>>90% accuracy target</td><td>160mA</td></tr><tr><td><strong>Motion Sensor</strong></td><td>PIR sensor</td><td>Event-driven wake</td><td>50µA standby</td></tr><tr><td><strong>Sleep Mode</strong></td><td>Deep sleep</td><td>Extended battery</td><td>10µA</td></tr><tr><td><strong>Connectivity</strong></td><td>WiFi 802.11 b/g/n + MQTT</td><td>Reliable mesh</td><td>120mA TX</td></tr><tr><td><strong>Storage</strong></td><td>MicroSD + PostgreSQL</td><td>Offline resilience</td><td>20mA write</td></tr><tr><td><strong>Power</strong></td><td>Solar + 5000mAh LiPo</td><td>10+ day runtime</td><td>Self-sustaining</td></tr></tbody></table>
+
+***
 
 ## Performance Targets
 
