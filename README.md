@@ -14,7 +14,7 @@
 
 The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch serving Seattle's International District/Chinatown community. Rat infestations significantly reduce harvest yields. GUARDEN offers a data-driven solution utilizing distributed AI-powered camera nodes to monitor and map rat activity, facilitating targeted pest control.
 
-### Key Features
+## Key Features
 
 * **Edge AI Detection** - On-device TensorFlow Lite inference on ESP32-C3
 * **Low Power Operation** - Motion-triggered wake with deep sleep (10µA standby)
@@ -26,7 +26,7 @@ The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch se
 
 ***
 
-### Technical Specifications
+## Technical Specifications
 
 | Component         | Specification            | Performance             | Power           |
 | ----------------- | ------------------------ | ----------------------- | --------------- |
@@ -39,7 +39,7 @@ The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch se
 | **Storage**       | MicroSD + PostgreSQL     | Offline resilience      | 20mA write      |
 | **Power**         | Solar + 5000mAh LiPo     | 10+ day runtime         | Self-sustaining |
 
-### Performance Targets
+## Performance Targets
 
 <table><thead><tr><th>Metric</th><th>Target</th><th>Status<select><option value="sqgq1MesM8XL" label="Achieved" color="blue"></option><option value="83KQpvtBIYxJ" label="In progress" color="blue"></option></select></th></tr></thead><tbody><tr><td>Detection Latency</td><td>&#x3C;1s</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Battery Life</td><td>3+ days</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Detection Accuracy</td><td>>65%</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Network Uptime</td><td>>20%</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr><tr><td>Storage Capacity</td><td>3+ days</td><td><span data-option="83KQpvtBIYxJ">In progress</span></td></tr></tbody></table>
 
@@ -60,5 +60,3 @@ GUARDEN/
 ├── docs/                  # Documentation
 └── config/                # Configuration files
 ```
-
-***
