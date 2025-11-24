@@ -1,0 +1,12 @@
+hostapd
+dnsmasq
+postgresql
+nginx
+python3-pip
+python3
+mosquitto
+mosquitto-clients
+paho-mqtt
+flask
+flask-socketio
+python3-paho-mqtt
