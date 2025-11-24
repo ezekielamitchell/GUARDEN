@@ -4,6 +4,10 @@
 
 MQTT is a lightweight, publish-subscribe messaging protocol designed for fast, efficient communication between devices over unreliable or low-bandwidth networks.
 
+{% hint style="warning" %}
+MQTT does NOT generate, modify, or store data. It only relays messages between various devices connected to it.
+{% endhint %}
+
 * **Architecture:** It uses a broker to manage message distribution between publishers (senders) and subscribers (receivers).
 * **Use Cases:** Commonly used for IoT (Internet of Things) applications, such as sensor networks and smart devices.
 * **Advantages:** Low overhead, minimal resource use, and real-time, reliable messaging even on constrained devices and networks.
