@@ -5,11 +5,11 @@
 **Hardware:**
 
 * ESP32-C3 with camera module (Grove Vision AI V2 Kit) × 4
-* Raspberry Pi 3B+ (local server with built-in WiFi)
-* MicroSD cards (64GB for Pi, 32GB for each ESP32 node)
+* Raspberry Pi 5B+ (local server with built-in WiFi)
+* MicroSD cards (32GB (min) for Pi, 32GB for each ESP32 node)
 * LiPo batteries (5000mAh) and solar panels
 * Weatherproof enclosures
-* Power bank or AC adapter for Pi 3B+
+* Power bank or AC adapter for Pi 5B+
 
 **Software:**
 
@@ -23,15 +23,26 @@
 
 ### Quick Start
 
-{% code expandable="true" %}
 ```bash
 # ============================================================
-# RASPBERRY PI 3B+ SETUP (Local Server)
+# RASPBERRY PI 5B+ SETUP (Local Server)
+# ============================================================
+
+# 1. Format setup script executable & run
+chmod +wrx setup.sh
+./setup.sh
+```
+
+### Full Start
+
+<pre class="language-bash" data-expandable="true"><code class="lang-bash"><strong># ============================================================
+</strong># RASPBERRY PI 5B+ SETUP (Local Server)
 # ============================================================
 
 # 1. Setup WiFi Access Point
 sudo apt-get update
-sudo apt-get install hostapd dnsmasq
+sudo apt-get upgrade -y
+
 
 # Configure hostapd for WiFi AP
 sudo nano /etc/hostapd/hostapd.conf
@@ -104,5 +115,4 @@ pio run --target upload
 # 1. Connect your phone/laptop to WiFi network "GUARDEN-Local"
 # 2. Open browser and navigate to: http://192.168.4.1
 # 3. View live detections, heatmaps, and analytics
-```
-{% endcode %}
+</code></pre>

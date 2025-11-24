@@ -2,6 +2,7 @@
 
 * [GUARDEN - Garden Urban AI Rodent Detection and Environment Node](../../README.md)
 * [Acknowledgements](acknowledgements.md)
+* [Background](background.md)
 * [Installation](installation.md)
 * [Usage](usage.md)
 * [Testing](testing.md)
