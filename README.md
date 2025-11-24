@@ -17,7 +17,7 @@ layout:
 
 # GUARDEN - Garden Urban AI Rodent Detection and Environment Node
 
-<div align="center" data-with-frame="true"><figure><picture><source srcset=".gitbook/includes/.gitbook/assets/guarden_dark (1).png" media="(prefers-color-scheme: dark)"><img src=".gitbook/assets/guarden.png" alt="" width="375"></picture><figcaption><p>image [1] logo</p></figcaption></figure></div>
+<div align="center" data-with-frame="true"><figure><picture><source srcset=".gitbook/includes/.gitbook/assets/guarden_dark (1).png" media="(prefers-color-scheme: dark)"><img src=".gitbook/includes/.gitbook/assets/guarden.png" alt="" width="375"></picture><figcaption><p>image [1] logo</p></figcaption></figure></div>
 
 <p align="center"><strong>Seattle University - College of Science and Engineering</strong><br><br><strong>ECEGR 4640: Internet of Things (IoT)</strong></p>
 
@@ -41,7 +41,7 @@ The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch se
 * **Real-Time Monitoring** - Local web dashboard with live visualization
 * **Data-Driven Insights** - Activity heatmaps, peak detection times, nesting area identification
 * **Offline Operation** - Fully self-contained system with no internet dependency
-* **Local Network** - Pi 3B+ acts as WiFi access point for ESP32 nodes and user access
+* **Local Network** - Pi 5B+ acts as WiFi access point for ESP32 nodes and user access
 
 ***
 
