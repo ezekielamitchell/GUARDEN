@@ -1,7 +1,24 @@
 .pio/build/seeed_xiao_esp32c3/src/edge/guarden-nodes/src/NodeA.cpp.o: \
  src/edge/guarden-nodes/src/NodeA.cpp \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFi.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/pgmspace.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Printable.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPAddress.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Printable.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPv6Address.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiType.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_wifi_types.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_private/esp_wifi_types_private.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_common/include/esp_err.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_common/include/esp_compiler.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_hw_support/include/esp_interface.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_event/include/esp_event_base.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiSTA.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiGeneric.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_event/include/esp_event.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/FreeRTOS.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/esp_additions/freertos/FreeRTOSConfig.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_common/include/esp_compiler.h \
@@ -15,8 +32,6 @@
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_hw_support/include/soc/cpu.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_hw_support/include/esp_cpu.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/hal/include/hal/cpu_hal.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_common/include/esp_err.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_common/include/esp_compiler.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/soc/esp32c3/include/soc/soc_caps.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/hal/include/hal/cpu_types.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/hal/esp32c3/include/hal/cpu_ll.h \
@@ -52,9 +67,56 @@
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/task.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/list.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/esp_additions/freertos/task_snapshot.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/semphr.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/queue.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/task.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/semphr.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/queue.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_event/include/esp_event_base.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_event/include/esp_event_legacy.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif_ip_addr.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif_types.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif_defaults.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth_netif_glue.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth_com.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/hal/include/hal/eth_types.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth_mac.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth_phy.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/tcpip_adapter/include/tcpip_adapter.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/tcpip_adapter/include/tcpip_adapter_types.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/ip_addr.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/opt.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/lwipopts.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/newlib/platform_include/sys/ioctl.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_system/include/esp_task.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/esp_additions/freertos/FreeRTOSConfig.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/netif/dhcp_state.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/sntp/sntp_get_set_time.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/debug.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/arch.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/arch/cc.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/newlib/platform_include/errno.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/arch/sys_arch.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/arch/vfs_lwip.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/def.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/ip4_addr.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/ip6_addr.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/def.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/ip6_zone.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/include/apps/dhcpserver/dhcpserver.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/err.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif_sta_list.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_smartconfig.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/wifi_provisioning/include/wifi_provisioning/manager.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/protocomm/include/common/protocomm.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/protocomm/include/security/protocomm_security.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/wifi_provisioning/include/wifi_provisioning/wifi_config.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiAP.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiScan.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiClient.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_hw_support/include/esp_sleep.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/hal/include/hal/touch_sensor_types.h \
@@ -64,7 +126,6 @@
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/soc/esp32c3/include/soc/gpio_struct.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/soc/esp32c3/include/soc/gpio_reg.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/soc/esp32c3/include/soc/gpio_sig_map.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/queue.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/event_groups.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/freertos/timers.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-log.h \
@@ -96,61 +157,15 @@
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/stdlib_noniso.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/binary.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/WCharacter.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/pgmspace.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Stream.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Printable.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPAddress.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Printable.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Client.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Server.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Udp.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Stream.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPAddress.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/HardwareSerial.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/HWCDC.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_event/include/esp_event.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_event/include/esp_event_base.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_event/include/esp_event_legacy.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_wifi_types.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_private/esp_wifi_types_private.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_hw_support/include/esp_interface.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_event/include/esp_event_base.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif_ip_addr.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif_types.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif_defaults.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth_netif_glue.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth_com.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/hal/include/hal/eth_types.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth_mac.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_eth/include/esp_eth_phy.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/tcpip_adapter/include/tcpip_adapter.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/tcpip_adapter/include/tcpip_adapter_types.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/ip_addr.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/opt.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/lwipopts.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/newlib/platform_include/sys/ioctl.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_system/include/esp_task.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/freertos/include/esp_additions/freertos/FreeRTOSConfig.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/netif/dhcp_state.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/sntp/sntp_get_set_time.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/debug.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/arch.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/arch/cc.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/arch/sys_arch.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/port/esp32/include/arch/vfs_lwip.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/def.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/ip4_addr.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/ip6_addr.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/def.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/ip6_zone.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/include/apps/dhcpserver/dhcpserver.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/lwip/lwip/src/include/lwip/err.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_netif/include/esp_netif_sta_list.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/USBCDC.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Esp.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/spi_flash/include/esp_partition.h \
@@ -162,23 +177,16 @@
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_hw_support/include/soc/esp32/spiram.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/io_pin_remap.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFi.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPv6Address.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiType.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiSTA.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiGeneric.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_smartconfig.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/wifi_provisioning/include/wifi_provisioning/manager.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/protocomm/include/common/protocomm.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/protocomm/include/security/protocomm_security.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/wifi_provisioning/include/wifi_provisioning/wifi_config.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiAP.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiScan.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiClient.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Client.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiServer.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Server.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Udp.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/cbuf.h
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/cbuf.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/ESPmDNS/src/ESPmDNS.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/mdns/include/mdns.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src/ArduinoOTA.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/Update/src/Update.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/MD5Builder.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_rom/include/esp_rom_md5.h
