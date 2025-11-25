@@ -161,4 +161,24 @@
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/spi_flash/include/esp_spi_flash_counters.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_hw_support/include/soc/esp32/spiram.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/io_pin_remap.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFi.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPv6Address.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiType.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiSTA.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiGeneric.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_smartconfig.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/wifi_provisioning/include/wifi_provisioning/manager.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/protocomm/include/common/protocomm.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/protocomm/include/security/protocomm_security.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/wifi_provisioning/include/wifi_provisioning/wifi_config.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiAP.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiScan.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiClient.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Client.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiServer.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Server.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiUdp.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/Udp.h \
+ /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/cbuf.h

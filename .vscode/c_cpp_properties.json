@@ -9,6 +9,7 @@
             "name": "PlatformIO",
             "includePath": [
                 "/Users/house/Developer/GUARDEN/src",
+                "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "/Users/house/Developer/GUARDEN/.pio/libdeps/seeed_xiao_esp32c3/ArduinoJson/src",
                 "/Users/house/Developer/GUARDEN/.pio/libdeps/seeed_xiao_esp32c3/PubSubClient/src",
                 "/Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/newlib/platform_include",
@@ -233,7 +234,6 @@
                 "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/USB/src",
                 "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/Update/src",
                 "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
-                "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                 "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                 "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
                 "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
@@ -243,6 +243,7 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
                     "/Users/house/Developer/GUARDEN/src",
+                    "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "/Users/house/Developer/GUARDEN/.pio/libdeps/seeed_xiao_esp32c3/ArduinoJson/src",
                     "/Users/house/Developer/GUARDEN/.pio/libdeps/seeed_xiao_esp32c3/PubSubClient/src",
                     "/Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/newlib/platform_include",
@@ -467,7 +468,6 @@
                     "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/USB/src",
                     "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/Update/src",
                     "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
-                    "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src",
                     "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFiClientSecure/src",
                     "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
                     "/Users/house/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
