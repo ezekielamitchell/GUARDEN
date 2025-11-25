@@ -2,21 +2,100 @@
 #include <ESPmDNS.h>
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
 
 const char *ssid = "endr-hidden";
 const char *password = "Endr07022024$$";
+const char *mqtt_server = "192.168.1.116";
+const int mqtt_port = 1883;
+const char *mqtt_topic = "guarden/node-a/status";
+
 uint32_t last_ota_time = 0;
+
+WiFiClient espClient;
+PubSubClient mqttClient(espClient);
+
+void reconnectMQTT() {
+  if (!mqttClient.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    String clientId = "ESP32-NodeA-" + String(random(0xffff), HEX);
+
+    if (mqttClient.connect(clientId.c_str())) {
+      Serial.println("connected");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(mqttClient.state());
+      Serial.println(" will try again later");
+    }
+  }
+}
+
+bool publishWiFiStatus() {
+  StaticJsonDocument<256> doc;
+
+  if (WiFi.status() == WL_CONNECTED) {
+    doc["status"] = "connected";
+    doc["ssid"] = WiFi.SSID();
+    doc["ip"] = WiFi.localIP().toString();
+    doc["rssi"] = WiFi.RSSI();
+    doc["mac"] = WiFi.macAddress();
+  } else {
+    doc["status"] = "disconnected";
+  }
+
+  char jsonBuffer[256];
+  serializeJson(doc, jsonBuffer);
+
+  if (mqttClient.publish(mqtt_topic, jsonBuffer)) {
+    Serial.println("MQTT: Published successfully");
+    return true;
+  } else {
+    Serial.println("MQTT: Publish failed");
+    return false;
+  }
+}
+
+void printWiFiStatus() {
+  Serial.println("\n=== WiFi Status ===");
+
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println("Status: Connected");
+    Serial.print("SSID: ");
+    Serial.println(WiFi.SSID());
+    Serial.print("IP Address: ");
+    Serial.println(WiFi.localIP());
+    Serial.print("Signal Strength (RSSI): ");
+    Serial.print(WiFi.RSSI());
+    Serial.println(" dBm");
+    Serial.print("MAC Address: ");
+    Serial.println(WiFi.macAddress());
+  } else {
+    Serial.println("Status: Disconnected");
+  }
+
+  Serial.println("==================\n");
+
+  // Publish to MQTT
+  publishWiFiStatus();
+}
 
 void setup() {
   Serial.begin(115200);
   Serial.println("Booting");
+  
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
+
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
     Serial.println("Connection Failed! Rebooting...");
     delay(5000);
     ESP.restart();
   }
+
+  // Setup MQTT
+  mqttClient.setServer(mqtt_server, mqtt_port);
+  reconnectMQTT();
 
   ArduinoOTA
     .onStart([]() {
@@ -62,8 +141,19 @@ void setup() {
 }
 
 void loop() {
-  delay(3000);
+  // Check for serial input
+  if (Serial.available() > 0) {
+    char inChar = Serial.read();
+    if (inChar == 's' || inChar == 'S') {
+      printWiFiStatus();
+    }
+  }
+
+  // // Maintain MQTT connection
+  // if (!mqttClient.connected()) {
+  //   reconnectMQTT();
+  // }
+  // mqttClient.loop();
+
   ArduinoOTA.handle();
-  Serial.println("[Node A] running...");
-  delay(2000);
 }

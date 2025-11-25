@@ -189,4 +189,8 @@
  /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/ArduinoOTA/src/ArduinoOTA.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/libraries/Update/src/Update.h \
  /Users/house/.platformio/packages/framework-arduinoespressif32/cores/esp32/MD5Builder.h \
- /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_rom/include/esp_rom_md5.h
+ /Users/house/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_rom/include/esp_rom_md5.h \
+ .pio/libdeps/seeed_xiao_esp32c3/PubSubClient/src/PubSubClient.h \
+ .pio/libdeps/seeed_xiao_esp32c3/ArduinoJson/src/ArduinoJson.h \
+ .pio/libdeps/seeed_xiao_esp32c3/ArduinoJson/src/ArduinoJson.hpp \
+ .pio/libdeps/seeed_xiao_esp32c3/ArduinoJson/src/ArduinoJson/Configuration.hpp
