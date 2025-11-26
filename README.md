@@ -62,13 +62,33 @@ The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch se
 ```
 GUARDEN/
 ├── src/
-│   ├── edge/              # ESP32 firmware and edge detection
-│   ├── fog/               # Raspberry Pi hub services
-│   └── cloud/             # Web dashboard and API
-├── tests/                 # Unit and integration tests
-├── data/                  # Datasets and trained models
-├── scripts/               # Training, deployment, utilities
-├── hardware/              # BOM, assembly guides, enclosures
-├── docs/                  # Documentation
-└── config/                # Configuration files
+│   ├── edge/                    # ESP32 firmware and edge detection
+│   │   ├── guarden-nodes/       # Node firmware code
+│   │   └── utils/               # Edge utilities
+│   ├── fog/                     # Raspberry Pi hub services
+│   │   ├── mqtt_broker/         # MQTT broker service
+│   │   ├── python_service/      # Python fog services
+│   │   └── utils/               # Fog utilities
+│   └── cloud/                   # Web dashboard and API
+│       ├── analytics/           # Analytics processing
+│       ├── dashboard/           # Web dashboard
+│       └── thingspeak/          # ThingSpeak integration
+├── tests/                       # Unit and integration tests
+│   ├── edge/                    # Edge tests
+│   ├── fog/                     # Fog tests
+│   ├── cloud/                   # Cloud tests
+│   └── integration/             # Integration tests
+├── data/                        # Datasets and trained models
+│   ├── raw/                     # Raw sensor data
+│   ├── processed/               # Processed datasets
+│   ├── training/                # Training datasets
+│   └── models/                  # Trained ML models
+├── scripts/                     # Training, deployment, utilities
+│   ├── training/                # Model training scripts
+│   ├── deployment/              # Deployment scripts
+│   └── utilities/               # Utility scripts
+├── docs/                        # Documentation
+│   ├── proposal/                # Project proposal
+│   └── technical/               # Technical documentation
+└── config/                      # Configuration files
 ```
