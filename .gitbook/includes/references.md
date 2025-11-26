@@ -1,3 +1,20 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: false
+---
+
 # References
 
 1. Jaulin, E. (2024). Rapport 2024. ENSTA Bretagne.

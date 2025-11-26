@@ -4,7 +4,7 @@ layout:
   title:
     visible: true
   description:
-    visible: true
+    visible: false
   tableOfContents:
     visible: true
   outline:
@@ -12,7 +12,7 @@ layout:
   pagination:
     visible: true
   metadata:
-    visible: true
+    visible: false
 ---
 
 # GUARDEN - Garden Urban AI Rodent Detection and Environment Node
@@ -41,7 +41,7 @@ The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch se
 * **Real-Time Monitoring** - Local web dashboard with live visualization
 * **Data-Driven Insights** - Activity heatmaps, peak detection times, nesting area identification
 * **Offline Operation** - Fully self-contained system with no internet dependency
-* **Local Network** - Pi 5B+ acts as WiFi access point for ESP32 nodes and user access
+* **Local Network** - Pi 5B+ acts as a WiFi access point for ESP32 nodes and user access
 
 ***
 
