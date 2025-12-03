@@ -2,6 +2,20 @@
 description: >-
   Ensure either the setup.sh or setup.py script has been ran prior to testing
   attempt.
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: false
 ---
 
 # Testing
