@@ -1,159 +1,145 @@
+  ///////////////////////////////////////
+ ///---------- NODE A ---------------///
+///////////////////////////////////////
 #include <WiFi.h>
-#include <ESPmDNS.h>
-#include <WiFiUdp.h>
-#include <ArduinoOTA.h>
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
+#include "time.h"
 
-const char *ssid = "endr-hidden";
-const char *password = "Endr07022024$$";
-const char *mqtt_server = "192.168.1.116";
-const int mqtt_port = 1883;
-const char *mqtt_topic = "guarden/node-a/status";
+// --- Configuration ---
+// Wi-Fi Credentials
+const char* ssid = "endr-hidden";
+const char* password = "Endr07022024$$";
 
-uint32_t last_ota_time = 0;
+// MQTT Broker (Raspberry Pi's IP address)
+const char *mqtt_server = "192.168.1.237";
+const int mqtt_port = 1883; // Default MQTT port
 
+
+// Unique Client ID for the ESP32
+const char* mqtt_client_id = "ESP32_XIAO_Publisher"; 
+const char *mqtt_topic = "endr/secure"; // Topic to publish the message
+const char* test_message = "MQTT PASS: ESP32-C3 XIAO";
+
+// Time Configuration (PST/PDT for Seattle, WA)
+const long gmtOffset_sec = -7 * 3600; // -7 hours for PST
+const int daylightOffset_sec = 1 * 3600; // +1 hour for PDT (Daylight Savings)
+const char* ntpServer = "pool.ntp.org"; // Use a general NTP server pool
+
+// --- Global Objects ---
 WiFiClient espClient;
-PubSubClient mqttClient(espClient);
+PubSubClient client(espClient);
+long lastMsg = 0; // For timing the publishing rate
+const long publishInterval = 5000;
 
-void reconnectMQTT() {
-  if (!mqttClient.connected()) {
-    Serial.print("Attempting MQTT connection...");
-    String clientId = "ESP32-NodeA-" + String(random(0xffff), HEX);
-
-    if (mqttClient.connect(clientId.c_str())) {
-      Serial.println("connected");
-    } else {
-      Serial.print("failed, rc=");
-      Serial.print(mqttClient.state());
-      Serial.println(" will try again later");
-    }
-  }
-}
-
-bool publishWiFiStatus() {
-  StaticJsonDocument<256> doc;
-
-  if (WiFi.status() == WL_CONNECTED) {
-    doc["status"] = "connected";
-    doc["ssid"] = WiFi.SSID();
-    doc["ip"] = WiFi.localIP().toString();
-    doc["rssi"] = WiFi.RSSI();
-    doc["mac"] = WiFi.macAddress();
-  } else {
-    doc["status"] = "disconnected";
-  }
-
-  char jsonBuffer[256];
-  serializeJson(doc, jsonBuffer);
-
-  if (mqttClient.publish(mqtt_topic, jsonBuffer)) {
-    Serial.println("MQTT: Published successfully");
-    return true;
-  } else {
-    Serial.println("MQTT: Publish failed");
-    return false;
-  }
-}
-
-void printWiFiStatus() {
-  Serial.println("\n=== WiFi Status ===");
-
-  if (WiFi.status() == WL_CONNECTED) {
-    Serial.println("Status: Connected");
-    Serial.print("SSID: ");
-    Serial.println(WiFi.SSID());
-    Serial.print("IP Address: ");
-    Serial.println(WiFi.localIP());
-    Serial.print("Signal Strength (RSSI): ");
-    Serial.print(WiFi.RSSI());
-    Serial.println(" dBm");
-    Serial.print("MAC Address: ");
-    Serial.println(WiFi.macAddress());
-  } else {
-    Serial.println("Status: Disconnected");
-  }
-
-  Serial.println("==================\n");
-
-  // Publish to MQTT
-  publishWiFiStatus();
-}
+// --- Function Declarations ---
+void setup_wifi();
+void setup_time();
+void reconnect();
+void callback(char* topic, byte* payload, unsigned int length);
+void publishData();
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("Booting");
-  
-  WiFi.mode(WIFI_STA);
+  setup_wifi();
+  setup_time();
+
+  // Initialize MQTT
+  client.setServer(mqtt_server, mqtt_port);
+  client.setCallback(callback);
+}
+
+void setup_wifi() {
+  delay(5);
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+
   WiFi.begin(ssid, password);
 
-  while (WiFi.waitForConnectResult() != WL_CONNECTED) {
-    Serial.println("Connection Failed! Rebooting...");
-    delay(5000);
-    ESP.restart();
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
   }
 
-  // Setup MQTT
-  mqttClient.setServer(mqtt_server, mqtt_port);
-  reconnectMQTT();
-
-  ArduinoOTA
-    .onStart([]() {
-      String type;
-      if (ArduinoOTA.getCommand() == U_FLASH) {
-        type = "sketch";
-      } else {  // U_SPIFFS
-        type = "filesystem";
-      }
-
-      // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS using SPIFFS.end()
-      Serial.println("Start updating " + type);
-    })
-    .onEnd([]() {
-      Serial.println("\nEnd");
-    })
-    .onProgress([](unsigned int progress, unsigned int total) {
-      if (millis() - last_ota_time > 500) {
-        Serial.printf("Progress: %u%%\n", (progress / (total / 100)));
-        last_ota_time = millis();
-      }
-    })
-    .onError([](ota_error_t error) {
-      Serial.printf("Error[%u]: ", error);
-      if (error == OTA_AUTH_ERROR) {
-        Serial.println("Auth Failed");
-      } else if (error == OTA_BEGIN_ERROR) {
-        Serial.println("Begin Failed");
-      } else if (error == OTA_CONNECT_ERROR) {
-        Serial.println("Connect Failed");
-      } else if (error == OTA_RECEIVE_ERROR) {
-        Serial.println("Receive Failed");
-      } else if (error == OTA_END_ERROR) {
-        Serial.println("End Failed");
-      }
-    });
-
-  ArduinoOTA.begin();
-
-  Serial.println("Ready");
+  Serial.println("");
+  Serial.println("WiFi connected");
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 }
 
-void loop() {
-  // Check for serial input
-  if (Serial.available() > 0) {
-    char inChar = Serial.read();
-    if (inChar == 's' || inChar == 'S') {
-      printWiFiStatus();
+void setup_time(){
+  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+
+  time_t now = time(nullptr);
+  int attempts = 0;
+  while (now < 1672531200 && attempts < 10){
+    delay(500);
+    Serial.print("#");
+    now = time(nullptr);
+    attempts++;
+  }
+  Serial.println("\nTime synchronized.");
+}
+
+// Dummy callback function (required by PubSubClient)
+void callback(char* topic, byte* payload, unsigned int length) {
+  // Not subscribing to anything, so this can be empty
+}
+
+void reconnect() {
+  while (!client.connected()) {
+    
+    Serial.print("Attempting MQTT connection...");
+
+    if (client.connect(mqtt_client_id)) {
+      Serial.println("connected");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" Try again in 5 seconds");
+      delay(5000);
     }
   }
+}
 
-  // // Maintain MQTT connection
-  // if (!mqttClient.connected()) {
-  //   reconnectMQTT();
-  // }
-  // mqttClient.loop();
+void publishData(){
+  time_t now = time(nullptr);
+  struct tm timeinfo;
 
-  ArduinoOTA.handle();
+  char time_str[9];
+  strftime(time_str, sizeof(time_str), "%H:%M:%S", &timeinfo);
+
+  StaticJsonDocument<200> doc;
+  doc["node_id"] = mqtt_client_id;
+  doc["ip_address"] = WiFi.localIP().toString();
+  doc["timestamp"] = time_str;
+  doc["data_source"] = "NodeA : ESP32-C3 XIAO";
+
+  char jsonBuffer[200];
+  size_t n = serializeJson(doc, jsonBuffer);
+
+  client.publish(mqtt_topic, jsonBuffer);
+
+  Serial.print("Published JSON (");
+  Serial.print(n);
+  Serial.print(" bytes) to ");
+  Serial.print(mqtt_topic);
+  Serial.print(": ");
+  Serial.println(jsonBuffer);
+
+}
+
+void loop() {
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+
+  long now = millis();
+  
+  if (now - lastMsg > publishInterval){
+    lastMsg = now;
+    publishData();
+  }
 }
