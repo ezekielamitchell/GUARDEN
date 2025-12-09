@@ -12,7 +12,7 @@ const char* ssid = "endr-hidden";
 const char* password = "Endr07022024$$";
 
 // MQTT Broker (Raspberry Pi's IP address)
-const char *mqtt_server = "192.168.1.237";
+const char *mqtt_server = "192.168.1.148";
 const int mqtt_port = 1883; // Default MQTT port
 
 
@@ -106,8 +106,9 @@ void reconnect() {
 void publishData(){
   time_t now = time(nullptr);
   struct tm timeinfo;
+  localtime_r(&now, &timeinfo);
 
-  char time_str[9];
+  char time_str[20];
   strftime(time_str, sizeof(time_str), "%H:%M:%S", &timeinfo);
 
   StaticJsonDocument<200> doc;

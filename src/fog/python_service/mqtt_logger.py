@@ -5,7 +5,7 @@ import datetime
 import sys
 
 # --- Configuration ---
-BROKER_ADDRESS = "192.168.1.237"
+BROKER_ADDRESS = "192.168.1.148"
 MQTT_TOPIC = "endr/secure"
 DB_FILE = "/home/pi/GUARDEN/data/raw/node_a_log.db"
 
@@ -61,13 +61,13 @@ def log_message(payload_data):
 
 
 # --- MQTT Callbacks ---
-def on_connect(client, userdata, flags, rc):
+def on_connect(client, userdata, flags, reason_code, properties):
     """Handles broker connection status."""
-    if rc == 0:
+    if reason_code == 0:
         client.subscribe(MQTT_TOPIC)
         print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Connected. Subscribing to {MQTT_TOPIC}")
     else:
-        print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Connection failed: {rc}. Check broker status.")
+        print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Connection failed: {reason_code}. Check broker status.")
 
 def on_message(client, userdata, msg):
     """Processes incoming messages."""
@@ -78,7 +78,7 @@ def on_message(client, userdata, msg):
 if __name__ == "__main__":
     setup_database()
     
-    client = mqtt.Client()
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
     client.on_connect = on_connect
     client.on_message = on_message
     
