@@ -8,8 +8,8 @@
 
 // --- Configuration ---
 // Wi-Fi Credentials
-const char* ssid = "dannywoo";
-const char* password = "dannywoo";
+const char* ssid = "endr-hidden";
+const char* password = "Endr07022024$$";
 
 // MQTT Broker (Raspberry Pi's IP address)
 const char *mqtt_server = "192.168.1.148";
