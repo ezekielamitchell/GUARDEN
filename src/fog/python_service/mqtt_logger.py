@@ -6,8 +6,8 @@ import sys
 
 # --- Configuration ---
 BROKER_ADDRESS = "192.168.1.148"
-MQTT_TOPIC = "endr/secure"
-DB_FILE = "/home/pi/GUARDEN/data/raw/node_a_log.db"
+MQTT_TOPIC = "guarden"
+DB_FILE = "/home/pi/GUARDEN/data/raw/node_log.db"
 
 # --- Database Setup & Logging ---
 def setup_database():
