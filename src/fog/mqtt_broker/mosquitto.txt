@@ -1,0 +1,10 @@
+# TO RUN IN RASPI TERMINAL
+
+# GEN FORMAT: mosquitto_sub -d -t "TOPIC NAME"
+mosquitto_sub -d -t "/dannywoo/test" >> /home/dannywoo/Documents/IoT/log.json
+
+# KEY INFO:
+SSID: dannywoo
+PASS: dannywoo
+IP: 192.168.45.1
+MQTT PORT: 1883

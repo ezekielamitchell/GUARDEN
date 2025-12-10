@@ -1,0 +1,21 @@
+Access Point Details:
+SSID: dannywoo
+Password: dannywoo
+IP Address: 192.168.45.1
+Status: Running and ready for connections
+
+Useful Commands:
+# Check service status
+sudo systemctl status guarden-ap.service
+
+# View logs
+sudo journalctl -u guarden-ap.service -f
+
+# Stop service
+sudo systemctl stop guarden-ap.service
+
+# Start service
+sudo systemctl start guarden-ap.service
+
+# Disable auto-start
+sudo systemctl disable guarden-ap.service

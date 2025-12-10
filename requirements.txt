@@ -10,3 +10,4 @@ paho-mqtt
 flask
 flask-socketio
 python3-paho-mqtt
+PyAccessPoint

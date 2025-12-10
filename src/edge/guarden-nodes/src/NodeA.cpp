@@ -2,17 +2,17 @@
  ///---------- NODE A ---------------///
 ///////////////////////////////////////
 #include <WiFi.h>
-#include <PubSubClient.h>
 #include <ArduinoJson.h>
+#include <PubSubClient.h>
 #include "time.h"
 
 // --- Configuration ---
 // Wi-Fi Credentials
-const char* ssid = "endr-hidden";
-const char* password = "Endr07022024$$";
+const char* ssid = "dannywoo";
+const char* password = "dannywoo";
 
 // MQTT Broker (Raspberry Pi's IP address)
-const char *mqtt_server = "192.168.1.148";
+const char *mqtt_server = "192.168.45.1";
 const int mqtt_port = 1883; // Default MQTT port
 
 // Connection retry settings
