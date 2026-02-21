@@ -1,0 +1,34 @@
+# GUARDEN Node Registry
+# Update lat/lng to match actual garden sensor placement
+
+nodes:
+  - node_id: node_01
+    location_label: "North Beds"
+    lat: 47.5982
+    lng: -122.3181
+    active: true
+
+  - node_02:
+    node_id: node_02
+    location_label: "South Beds"
+    lat: 47.5978
+    lng: -122.3180
+    active: true
+
+  - node_id: node_03
+    location_label: "Compost Area"
+    lat: 47.5979
+    lng: -122.3183
+    active: true
+
+  - node_id: node_04
+    location_label: "Tool Shed"
+    lat: 47.5981
+    lng: -122.3178
+    active: true
+
+# Garden map center point (for dashboard Leaflet map)
+garden:
+  center_lat: 47.5980
+  center_lng: -122.3181
+  default_zoom: 19

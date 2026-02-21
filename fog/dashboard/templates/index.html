@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUARDEN — Rodent Detection Dashboard</title>
+
+    <!-- Leaflet for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+
+    <!-- Chart.js for timeline -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #0f1117;
+            color: #e2e8f0;
+        }
+
+        header {
+            background: #1a1d27;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        header h1 { font-size: 1.2rem; color: #68d391; letter-spacing: 1px; }
+        header .subtitle { font-size: 0.75rem; color: #718096; }
+
+        .stats-bar {
+            display: flex;
+            gap: 12px;
+            padding: 12px 20px;
+            background: #1a1d27;
+            border-bottom: 1px solid #2d3748;
+            overflow-x: auto;
+        }
+
+        .stat {
+            background: #2d3748;
+            border-radius: 8px;
+            padding: 10px 16px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .stat .value { font-size: 1.5rem; font-weight: bold; color: #68d391; }
+        .stat .label { font-size: 0.7rem; color: #718096; margin-top: 2px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 400px auto;
+            gap: 12px;
+            padding: 12px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: #1a1d27;
+            border-radius: 10px;
+            border: 1px solid #2d3748;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 10px 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        #map { height: 100%; min-height: 350px; }
+
+        .chart-container { padding: 12px; height: calc(100% - 40px); }
+
+        .node-list { padding: 8px; }
+
+        .node-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 10px;
+            border-radius: 6px;
+            margin-bottom: 4px;
+            background: #2d3748;
+            font-size: 0.8rem;
+        }
+
+        .node-item .node-id { color: #68d391; font-weight: 600; }
+        .node-item .node-info { color: #718096; }
+        .battery-bar {
+            width: 40px;
+            height: 8px;
+            background: #4a5568;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .battery-fill { height: 100%; background: #68d391; border-radius: 4px; }
+
+        .recent-list { padding: 8px; overflow-y: auto; max-height: 200px; }
+        .detection-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            border-bottom: 1px solid #2d3748;
+        }
+        .detection-item .conf { color: #f6ad55; font-weight: bold; }
+        .detection-item .time { color: #718096; }
+
+        .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #68d391;
+            display: inline-block;
+            margin-right: 6px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h1>🌿 GUARDEN</h1>
+        <div class="subtitle">Danny Woo Community Garden — Rodent Detection</div>
+    </div>
+    <div style="font-size:0.75rem; color:#718096;">
+        <span class="dot"></span>Live
+    </div>
+</header>
+
+<!-- Stats Bar -->
+<div class="stats-bar" id="stats-bar">
+    <div class="stat"><div class="value" id="stat-total">—</div><div class="label">Total Detections</div></div>
+    <div class="stat"><div class="value" id="stat-24h">—</div><div class="label">Last 24h</div></div>
+    <div class="stat"><div class="value" id="stat-nodes">—</div><div class="label">Active Nodes</div></div>
+    <div class="stat"><div class="value" id="stat-conf">—</div><div class="label">Avg Confidence</div></div>
+</div>
+
+<div class="grid">
+
+    <!-- Heatmap -->
+    <div class="card">
+        <div class="card-header">Activity Heatmap</div>
+        <div id="map"></div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="card">
+        <div class="card-header">Detection Timeline (48h)</div>
+        <div class="chart-container">
+            <canvas id="timeline-chart"></canvas>
+        </div>
+    </div>
+
+    <!-- Node status -->
+    <div class="card">
+        <div class="card-header">Node Status</div>
+        <div class="node-list" id="node-list"></div>
+    </div>
+
+    <!-- Recent detections -->
+    <div class="card">
+        <div class="card-header">Recent Detections</div>
+        <div class="recent-list" id="recent-list"></div>
+    </div>
+
+</div>
+
+<script>
+// ─── Map ───────────────────────────────────────────────────────────────────
+const map = L.map('map').setView([47.5980, -122.3181], 19);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap',
+    maxZoom: 22
+}).addTo(map);
+
+let heatLayer = L.heatLayer([], {
+    radius: 25,
+    blur: 15,
+    maxZoom: 22,
+    gradient: { 0.2: 'blue', 0.5: 'yellow', 1.0: 'red' }
+}).addTo(map);
+
+// ─── Timeline Chart ────────────────────────────────────────────────────────
+const ctx = document.getElementById('timeline-chart').getContext('2d');
+const timelineChart = new Chart(ctx, {
+    type: 'bar',
+    data: { labels: [], datasets: [{ label: 'Detections', data: [], backgroundColor: '#68d391' }] },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+            x: { ticks: { color: '#718096', maxTicksLimit: 8 }, grid: { color: '#2d3748' } },
+            y: { ticks: { color: '#718096' }, grid: { color: '#2d3748' }, beginAtZero: true }
+        }
+    }
+});
+
+// ─── Data Fetching ─────────────────────────────────────────────────────────
+async function fetchStats() {
+    const data = await fetch('/api/stats').then(r => r.json());
+    document.getElementById('stat-total').textContent = data.total_detections;
+    document.getElementById('stat-24h').textContent   = data.detections_24h;
+    document.getElementById('stat-nodes').textContent = data.active_nodes;
+    document.getElementById('stat-conf').textContent  = (data.avg_confidence * 100).toFixed(0) + '%';
+}
+
+async function fetchHeatmap() {
+    const points = await fetch('/api/heatmap?hours=24').then(r => r.json());
+    heatLayer.setLatLngs(points.map(p => [p[0], p[1], p[2]]));
+}
+
+async function fetchTimeline() {
+    const data = await fetch('/api/timeline?hours=48').then(r => r.json());
+    timelineChart.data.labels   = data.map(d => new Date(d.hour).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}));
+    timelineChart.data.datasets[0].data = data.map(d => d.count);
+    timelineChart.update();
+}
+
+async function fetchNodes() {
+    const nodes = await fetch('/api/nodes').then(r => r.json());
+    const el = document.getElementById('node-list');
+    el.innerHTML = nodes.map(n => {
+        const batt = n.battery_mv ? Math.min(100, ((n.battery_mv - 3000) / 1200) * 100).toFixed(0) : 0;
+        const lastSeen = n.last_seen ? new Date(n.last_seen).toLocaleTimeString() : 'Never';
+        return `
+        <div class="node-item">
+            <div>
+                <span class="node-id">${n.node_id}</span>
+                <span class="node-info"> — ${n.location_label || 'Unknown'}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <span class="node-info">${lastSeen}</span>
+                <div class="battery-bar"><div class="battery-fill" style="width:${batt}%"></div></div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+async function fetchRecent() {
+    const detections = await fetch('/api/detections/recent').then(r => r.json());
+    const el = document.getElementById('recent-list');
+    el.innerHTML = detections.map(d => `
+        <div class="detection-item">
+            <span>${d.node_id}</span>
+            <span class="conf">${(d.confidence * 100).toFixed(0)}%</span>
+            <span class="time">${new Date(d.timestamp).toLocaleTimeString()}</span>
+        </div>`
+    ).join('');
+}
+
+// ─── Init & Refresh ────────────────────────────────────────────────────────
+async function refresh() {
+    await Promise.all([fetchStats(), fetchHeatmap(), fetchTimeline(), fetchNodes(), fetchRecent()]);
+}
+
+refresh();
+setInterval(refresh, 30000); // Refresh every 30s
+</script>
+
+</body>
+</html>

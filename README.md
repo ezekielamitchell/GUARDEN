@@ -21,9 +21,9 @@ layout:
 
 <p align="center"><strong>Seattle University - College of Science and Engineering</strong><br><br><strong>ECEGR 4640: Internet of Things (IoT)</strong></p>
 
-<p align="center">Rollan Cabalar, Narely Rivas Castellon, Ezekiel A. Mitchell, Tony Tran, Brandon Vu<br>{rcabalar, nrivascastellon, emitchell4, ttran23, bvu}@seattleu.edu<br><br>Danny Woo Community Garden (Andy Allen, aallen@interimcda.org)</p>
+<p align="center">Ezekiel A. Mitchell<br>emitchell4@seattleu.edu<br><br>Danny Woo Community Garden (Andy Allen, aallen@interimcda.org)</p>
 
-<p align="center"><a href="LICENSE/"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a> <a href="https://www.espressif.com/en/products/socs/esp32-c3"><img src="https://img.shields.io/badge/platform-ESP32--C3-green.svg" alt="Platform"></a> <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python"></a></p>
+<p align="center"><a href="LICENSE/"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a> <a href="https://www.espressif.com/en/products/socs/esp32-c3"><img src="https://img.shields.io/badge/platform-ESP32--C3-green.svg" alt="Platform"></a> <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python"></a></p>
 
 ***
 
@@ -47,7 +47,7 @@ The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch se
 
 ## Technical Specifications
 
-<table data-full-width="true"><thead><tr><th>Component</th><th>Specification</th><th>Performance</th><th>Power</th></tr></thead><tbody><tr><td><strong>Processor</strong></td><td>ESP32-C3 RISC-V @ 160MHz</td><td>&#x3C;250ms inference target</td><td>240mA active</td></tr><tr><td><strong>Camera</strong></td><td>OV2640 2MP sensor</td><td>640×480 capture</td><td>80mA</td></tr><tr><td><strong>AI Model</strong></td><td>TensorFlow Lite INT8</td><td>>90% accuracy target</td><td>160mA</td></tr><tr><td><strong>Motion Sensor</strong></td><td>PIR sensor</td><td>Event-driven wake</td><td>50µA standby</td></tr><tr><td><strong>Sleep Mode</strong></td><td>Deep sleep</td><td>Extended battery</td><td>10µA</td></tr><tr><td><strong>Connectivity</strong></td><td>WiFi 802.11 b/g/n + MQTT</td><td>Reliable mesh</td><td>120mA TX</td></tr><tr><td><strong>Storage</strong></td><td>MicroSD + PostgreSQL</td><td>Offline resilience</td><td>20mA write</td></tr><tr><td><strong>Power</strong></td><td>Solar + 5000mAh LiPo</td><td>10+ day runtime</td><td>Self-sustaining</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th>Component</th><th>Specification</th><th>Performance</th><th>Power</th></tr></thead><tbody><tr><td><strong>Processor</strong></td><td>ESP32-C3 RISC-V @ 160MHz</td><td>&#x3C;1s inference target</td><td>240mA active</td></tr><tr><td><strong>Camera</strong></td><td>OV2640 2MP sensor</td><td>96×96 grayscale capture</td><td>80mA</td></tr><tr><td><strong>AI Model</strong></td><td>MobileNetV2 α=0.35 TFLite INT8</td><td>>65% accuracy target</td><td>160mA</td></tr><tr><td><strong>Motion Sensor</strong></td><td>PIR sensor</td><td>Event-driven wake</td><td>50µA standby</td></tr><tr><td><strong>Sleep Mode</strong></td><td>Deep sleep</td><td>Extended battery</td><td>10µA</td></tr><tr><td><strong>Connectivity</strong></td><td>WiFi 802.11 b/g/n + MQTT</td><td>Local AP only</td><td>120mA TX</td></tr><tr><td><strong>Storage</strong></td><td>MicroSD + PostgreSQL</td><td>Offline resilience</td><td>20mA write</td></tr><tr><td><strong>Power</strong></td><td>Solar + 5000mAh LiPo</td><td>10+ day runtime</td><td>Self-sustaining</td></tr></tbody></table>
 
 ***
 
@@ -61,34 +61,36 @@ The Danny Woo Community Garden (established 1975) is a 1.5-acre urban P-Patch se
 
 ```
 GUARDEN/
-├── src/
-│   ├── edge/                    # ESP32 firmware and edge detection
-│   │   ├── guarden-nodes/       # Node firmware code
-│   │   └── utils/               # Edge utilities
-│   ├── fog/                     # Raspberry Pi hub services
-│   │   ├── mqtt_broker/         # MQTT broker service
-│   │   ├── python_service/      # Python fog services
-│   │   └── utils/               # Fog utilities
-│   └── cloud/                   # Web dashboard and API
-│       ├── analytics/           # Analytics processing
-│       ├── dashboard/           # Web dashboard
-│       └── thingspeak/          # ThingSpeak integration
-├── tests/                       # Unit and integration tests
-│   ├── edge/                    # Edge tests
-│   ├── fog/                     # Fog tests
-│   ├── cloud/                   # Cloud tests
-│   └── integration/             # Integration tests
-├── data/                        # Datasets and trained models
-│   ├── raw/                     # Raw sensor data
-│   ├── processed/               # Processed datasets
-│   ├── training/                # Training datasets
-│   └── models/                  # Trained ML models
-├── scripts/                     # Training, deployment, utilities
-│   ├── training/                # Model training scripts
-│   ├── deployment/              # Deployment scripts
-│   └── utilities/               # Utility scripts
-├── docs/                        # Documentation
-│   ├── proposal/                # Project proposal
-│   └── technical/               # Technical documentation
-└── config/                      # Configuration files
+├── edge/                        # ESP32-C3 firmware (PlatformIO)
+│   ├── platformio.ini
+│   └── src/
+│       ├── main.cpp             # Entry point, deep sleep logic
+│       ├── camera.cpp/.h        # OV2640 init + capture
+│       ├── detector.cpp/.h      # TFLite inference wrapper
+│       ├── mqtt_client.cpp/.h   # WiFi + MQTT publish
+│       ├── model_data.h         # Auto-generated from quantize.py
+│       └── config.h             # Pin defs, thresholds, node ID
+│
+├── fog/                         # Raspberry Pi hub (all services)
+│   ├── broker/mosquitto.conf    # MQTT broker config
+│   ├── ingestion/main.py        # MQTT → PostgreSQL ingestion
+│   ├── dashboard/app.py         # Flask dashboard + API
+│   ├── db/schema.sql            # Database schema
+│   ├── setup.sh                 # One-shot Pi setup script
+│   └── requirements.txt
+│
+├── model/                       # ML pipeline (run on laptop)
+│   ├── train.py                 # MobileNetV2 training
+│   ├── quantize.py              # INT8 TFLite export
+│   ├── evaluate.py              # Accuracy benchmarks
+│   └── guarden_v1_int8.tflite   # Trained model
+│
+├── config/
+│   ├── nodes.yaml               # Node locations + GPS coords
+│   └── .env.example             # Environment variable template
+│
+└── tests/
+    ├── test_ingestion.py
+    ├── test_dashboard.py
+    └── test_model.py
 ```
